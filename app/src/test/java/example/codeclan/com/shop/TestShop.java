@@ -31,11 +31,11 @@ public class TestShop {
 
     @Test
     public void canSellStuff() {
-        shop1.sellStuff(100, customer1);
-        shop2.sellStuff(199.99, customer2);
+        shop1.sellStuff(100);
+        shop2.sellStuff(199.99);
 
         assertEquals(1055.67, shop1.getSales(), 0.01);
-        assertEquals(400, customer1.getWallet(), 0.01);
+        assertEquals(500, customer1.getWallet(), 0.01);
 
         assertEquals(4800.01, customer2.getWallet(), 0.01);
         assertEquals(10199.99, shop2.getSales(), 0.01);

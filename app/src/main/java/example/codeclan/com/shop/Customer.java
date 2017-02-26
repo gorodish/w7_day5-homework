@@ -8,22 +8,21 @@ public class Customer {
 
     private String name;
     public double wallet;
-    private Shop shop;
 
     public Customer(String name, double wallet) {
         this.name = name;
         this.wallet = wallet;
     }
 
-    public double getWallet() {
-        return wallet;
-    }
-
     public String getName() {
         return name;
     }
 
-    public void buyStuff(Shop sale) {
+    public double getWallet() {
+        return wallet;
+    }
+
+    public void buyStuff(Shop shop, double sale) {
         this.wallet -= sale;
         shop.sellStuff(sale);
     }

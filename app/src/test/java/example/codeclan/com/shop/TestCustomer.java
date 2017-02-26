@@ -29,8 +29,8 @@ public class TestCustomer {
 
     @Test
     public void canBuyStuff() {
-        customer1.buyStuff(100);
-        customer2.buyStuff(199.99);
+        customer1.buyStuff(shop1, 100);
+        customer2.buyStuff(shop2, 199.99);
 
         assertEquals(400.0, customer1.getWallet(), 0.01);
         assertEquals(1100, shop1.getSales(), 0.01);

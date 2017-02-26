@@ -7,9 +7,7 @@ package example.codeclan.com.shop;
 public class Shop {
 
     private String name;
-    private double sale;
     private double sales;
-    private double refund;
     private double bankBalance;
 
     public Shop(String name, double bankBalance, double sales) {
@@ -19,8 +17,8 @@ public class Shop {
     }
 
     public void sellStuff(double sale) {
-        this.bankBalance += sale;
         this.sales += sale;
+        this.bankBalance += sale;
     }
 
     public String getName() {
@@ -38,11 +36,6 @@ public class Shop {
     public void giveRefund(double refund) {
         this.bankBalance -= refund;
         this.sales -= refund;
-    }
-
-    public double getIncome() {
-        this.sales -= refund;
-        return sales;
     }
 
 }
