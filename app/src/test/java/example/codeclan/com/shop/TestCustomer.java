@@ -33,9 +33,9 @@ public class TestCustomer {
         customer2.buyStuff(shop2, 199.99);
 
         assertEquals(400.0, customer1.getWallet(), 0.01);
-        assertEquals(1100, shop1.getSales(), 0.01);
+        assertEquals(1055.67, shop1.getSales(), 0.01);
 
         assertEquals(4800.01, customer2.getWallet(), 0.01);
-        assertEquals(10199.99, shop2.getSales(), 0.01);
+        assertEquals(973.79, shop2.getSales(), 0.01);
     }
 }

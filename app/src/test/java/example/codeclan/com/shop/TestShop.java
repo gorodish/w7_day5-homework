@@ -31,14 +31,14 @@ public class TestShop {
 
     @Test
     public void canSellStuff() {
-        shop1.sellStuff(100);
-        shop2.sellStuff(199.99);
+        customer1.buyStuff(shop1, 100);
+        customer2.buyStuff(shop2, 199.99);
 
         assertEquals(1055.67, shop1.getSales(), 0.01);
-        assertEquals(500, customer1.getWallet(), 0.01);
+        assertEquals(400, customer1.getWallet(), 0.01);
 
         assertEquals(4800.01, customer2.getWallet(), 0.01);
-        assertEquals(10199.99, shop2.getSales(), 0.01);
+        assertEquals(973.79, shop2.getSales(), 0.01);
 
     }
 
@@ -53,6 +53,13 @@ public class TestShop {
 
     @Test
     public void canGetIncome() {
+        customer1.buyStuff(shop1, 100);
+        customer2.buyStuff(shop2, 199.99);
+        shop1.giveRefund(10);
+        shop2.giveRefund(100);
+
+        assertEquals(1045.67, shop1.getSales(), 0.01);
+        assertEquals(873.79, shop2.getSales(), 0.01);
 
     }
 }
