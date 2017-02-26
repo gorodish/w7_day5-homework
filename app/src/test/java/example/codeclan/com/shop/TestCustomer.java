@@ -8,15 +8,18 @@ import org.junit.*;
 
 public class TestCustomer {
 
-    Shop shop1;
-    Shop shop2;
+    private Shop shop1;
+    private Shop shop2;
     private Customer customer1;
+    private Customer customer2;
+
 
     @Before
     public void before() {
-        shop1 = new Shop("Bob's Army & Navy Stores", 1000);
-        shop2 = new Shop("Emporio Armani", 10000);
-        customer1 = new Customer("Dave", 100);
+        shop1 = new Shop("Bob's Army & Navy Stores", 1000, 955.67);
+        shop2 = new Shop("Emporio Armani", 10000, 773.80);
+        customer1 = new Customer("Dave", 500);
+        customer2 = new Customer("Alphonse", 5000);
     }
 
     @Test
@@ -26,8 +29,13 @@ public class TestCustomer {
 
     @Test
     public void canBuyStuff() {
-        customer1.buyStuff(100, shop1);
-        assertEquals(0.0, customer1.getWallet(), 0.01);
+        customer1.buyStuff(100);
+        customer2.buyStuff(199.99);
+
+        assertEquals(400.0, customer1.getWallet(), 0.01);
         assertEquals(1100, shop1.getSales(), 0.01);
+
+        assertEquals(4800.01, customer2.getWallet(), 0.01);
+        assertEquals(10199.99, shop2.getSales(), 0.01);
     }
 }

@@ -7,41 +7,42 @@ package example.codeclan.com.shop;
 public class Shop {
 
     private String name;
+    private double sale;
     private double sales;
+    private double refund;
+    private double bankBalance;
 
-    public Shop(String name, double sales) {
+    public Shop(String name, double bankBalance, double sales) {
         this.name = name;
+        this.bankBalance = bankBalance;
         this.sales = sales;
     }
 
-    public double sellStuff(double sale) {
-            this.sales += sale;
-            return sale;
+    public void sellStuff(double sale) {
+        this.bankBalance += sale;
+        this.sales += sale;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public double getSales() {
         return sales;
     }
 
-    public void setSales(double sales) {
-        this.sales = sales;
+    public double getBankBalance() {
+        return bankBalance;
     }
 
-    public double giveRefund(double refund) {
+    public void giveRefund(double refund) {
+        this.bankBalance -= refund;
         this.sales -= refund;
-        return refund;
     }
 
     public double getIncome() {
-        double income = this.sales - this.refund;
-        return income;
+        this.sales -= refund;
+        return sales;
     }
+
 }
